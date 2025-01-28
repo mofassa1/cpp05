@@ -1,3 +1,4 @@
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 Form::Form() : Name("Default"), Signed(false), GradeToSigne(150), GradeToExec(150)
@@ -62,7 +63,6 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
     else
         Signed = true;
 }
-
 
 
 const char* Form::GradeTooLowException::what() const throw()

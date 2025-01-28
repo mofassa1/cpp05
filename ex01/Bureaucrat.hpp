@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+class Form;
+
 class Bureaucrat
 {
     private:
@@ -29,6 +31,9 @@ class Bureaucrat
 
         // setter
         void setGrade(int Grade);
+
+        // form methode
+        void signForm(Form &form);
     
         class GradeTooLowException : public std::exception
         {

@@ -25,6 +25,7 @@ class Form
 
 
         void beSigned(const Bureaucrat &ureaucrat);
+        
 
         class GradeTooLowException : public std::exception
         {

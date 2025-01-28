@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include <iostream>
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(): Name("Unnamed"), Grade(150)
 {
@@ -136,6 +136,19 @@ void Bureaucrat::setGrade(int Grade)
     // {
     //     std::cerr << "Exception thrown: " << e.what() << std::endl;
     // }
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+    if (form.GetState())
+        std::cout << "the form is already signed !!!! " << std::endl;
+    else if (getGrade() > form.GetGradeToSige())
+    {
+        form.beSigned(*this);
+        std::cout << "the bureaucrat  : " << getName() << " signed the form : " << form.GetName() << std::endl;
+    }
+    else
+        std::cout << "the bureaucrat  : " << "** " << *this << " **" << " couldn't sign the form : " << "** " << form << " **" << "because" << "it grade ( " << getGrade() << " ) is too low" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat &bureaucrat)
