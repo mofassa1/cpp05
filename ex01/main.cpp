@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
         }
         {
             Bureaucrat Tree;
-
+            Form form("Invalid", 1, 300);
             
         }
     }
