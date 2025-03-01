@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+
 
 Bureaucrat::Bureaucrat(): Name("Unnamed"), Grade(150)
 {
@@ -138,31 +138,38 @@ void Bureaucrat::setGrade(int Grade)
     // }
 }
 
-void Bureaucrat::signForm(Form &form)
+
+
+void Bureaucrat::signForm(AForm &form) const
 {
-    if (form.GetState())
-    {
-        std::cout << "The form is already signed!" << std::endl;
-    }
-    else
-    {
-        try
-        {
-            form.beSigned(*this);
-            std::cout << "The bureaucrat " << getName() << " signed the form " << form.GetName() << std::endl;
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << "The bureaucrat " << getName() << " couldn't sign the form " << form.GetName()
-                      << " because: " << e.what() << std::endl;
-        }
-    }
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "Bureaucrat :" << Name << "  signed the form : " << form.GetName() << std::endl;
+	}
+	catch (AForm::GradeTooLowException &e)
+	{
+		std::cerr << "Bureaucrat :" << Name << " couldn't sign the form : " << form.GetName() << " because the lowest grade to sign is " << form.GetGradeToSige() << "." << std::endl;
+	}
 }
 
-
-std::ostream& operator<<(std::ostream& os, Bureaucrat &bureaucrat)
+void Bureaucrat::executeForm(AForm  &form) const
 {
-    os << "Bureaucrat named: " << bureaucrat.getName() 
-       << " has a Grade: " << bureaucrat.getGrade() << std::endl;
-    return os;
+	try
+	{
+		form.execute(*this);
+		std::cout << "Bureaucrat : " << this->Name << " executed the form : " << form.GetName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Bureaucrat : " << this->Name << " couldn't execute the form : " << form.GetName() << " because: " << e.what() << std::endl;
+	} 
+}
+
+std::ostream& operator<<(std::ostream& out, Bureaucrat *bureaucrat)
+{
+    out << "form ::::: Bureaucrat " << std::endl;
+    out << "Bureaucrat named: " << bureaucrat->getName() << std::endl;
+    out << " has a Grade: " << bureaucrat->getGrade() << std::endl;
+    return out;
 }

@@ -4,23 +4,32 @@ int main()
 {
     try
     {
-        {
-            Bureaucrat one(300);
-            Bureaucrat two("The Second");
+        Bureaucrat b1("one", 50);
+        std::cout << b1;
 
-            std::cout << one << std::endl;
-            std::cout << two << std::endl; 
-        }
-        {
-            Bureaucrat Tree;
+        Bureaucrat b2("two", 1);
+        std::cout << b2;
+        b2.IncrementGrade(); 
 
-            
-        }
     }
-    catch(const std::exception& e)
+    catch (const Bureaucrat::GradeTooHighException &e)
     {
-        std::cerr << "exception : " << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
     }
-    
+    catch (const Bureaucrat::GradeTooLowException &e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 
+    try
+    {
+        Bureaucrat b3("tree", 200); 
+        std::cout << b3;
+    }
+    catch (const Bureaucrat::GradeTooLowException &e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return 0;
 }
