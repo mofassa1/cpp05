@@ -5,29 +5,33 @@
 
 int main() {
     try {
-        std::cout << "Test 1: Bureaucrat tries to execute a ShrubberyCreationForm\n";
-        Bureaucrat alice("Alice", 140);
+        std::cout << "Test 1: ShrubberyCreationForm " << std::endl;
+
+        Bureaucrat firstBureaucrat("firstBureaucrat", 140);
         ShrubberyCreationForm shrubForm("Home");
-        alice.signForm(shrubForm);
-        alice.executeForm(shrubForm);
+        firstBureaucrat.signForm(shrubForm);
+        firstBureaucrat.executeForm(shrubForm);
 
-        std::cout << "\nTest 2: Bureaucrat with sufficient grade executes ShrubberyCreationForm\n";
-        Bureaucrat bob("Bob", 130);
-        bob.signForm(shrubForm);
-        bob.executeForm(shrubForm);
+        std::cout << "Test 2: ShrubberyCreationForm " << std::endl;
 
-        std::cout << "\nTest 3: RobotomyRequestForm execution\n";
-        Bureaucrat charlie("Charlie", 40);
+        Bureaucrat SecondBureaucrat("SecondBureaucrat", 130);
+        SecondBureaucrat.signForm(shrubForm);
+        SecondBureaucrat.executeForm(shrubForm);
+
+        std::cout << "Test 3: RobotomyRequestForm " << std::endl;
+
+        Bureaucrat ThirdBureaucrat("ThirdBureaucrat", 40);
         RobotomyRequestForm roboForm("TargetX");
-        charlie.signForm(roboForm);
-        charlie.executeForm(roboForm);
+        ThirdBureaucrat.signForm(roboForm);
+        ThirdBureaucrat.executeForm(roboForm);
 
-        std::cout << "\nTest 4: PresidentialPardonForm execution\n";
-        Bureaucrat dave("Dave", 3);
+        std::cout << "Test 4: PresidentialPardonForm " << std::endl;
+
+        Bureaucrat LastBureaucrat("LastBureaucrat", 3);
         PresidentialPardonForm pardonForm("Frank");
-        dave.signForm(pardonForm);
-        dave.executeForm(pardonForm);
-    } 
+        LastBureaucrat.signForm(pardonForm);
+        LastBureaucrat.executeForm(pardonForm);
+    }
     catch (const std::exception &e) {
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }

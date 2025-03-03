@@ -10,6 +10,7 @@ int main()
         Bureaucrat b2("two", 1);
         std::cout << b2;
         b2.IncrementGrade(); 
+        std::cout << b2 << std::endl;
 
     }
     catch (const Bureaucrat::GradeTooHighException &e)

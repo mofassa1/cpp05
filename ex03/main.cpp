@@ -6,37 +6,43 @@
 #include "Bureaucrat.hpp"
 
 
-int main() {
-    Intern someRandomIntern;
+int main(void)
+{
+    Intern AnIntern;
     Bureaucrat boss("Boss", 1);
 
-    std::cout << "\n===== Test 1: Creating Forms via Intern =====\n";
-    AForm* shrub = someRandomIntern.makeForm("shrubbery creation", "Home");
-    AForm* robotomy = someRandomIntern.makeForm("robotomy request", "Bender");
-    AForm* pardon = someRandomIntern.makeForm("presidential pardon", "Alice");
+    std::cout << "===== Test 1: Creating Forms by Intern =====" << std::endl;
 
-    std::cout << "\n===== Test 2: Bureaucrat Signing & Executing Forms =====\n";
-    if (shrub) {
+    AForm* shrub = AnIntern.makeForm("shrubbery creation", "Home");
+    AForm* robotomy = AnIntern.makeForm("robotomy request", "robotom");
+    AForm* pardon = AnIntern.makeForm("presidential pardon", "presidentialp");
+
+    std::cout << "===== Test 2: Bureaucrat Signing & Executing Forms =====" << std::endl;
+    if (shrub)
+    {
         boss.signForm(*shrub);
         boss.executeForm(*shrub);
         delete shrub;
     }
 
-    if (robotomy) {
+    if (robotomy)
+    {
         boss.signForm(*robotomy);
         boss.executeForm(*robotomy);
         delete robotomy;
     }
 
-    if (pardon) {
+    if (pardon)
+    {
         boss.signForm(*pardon);
         boss.executeForm(*pardon);
         delete pardon;
     }
 
-    // Optional test for unknown form
-    AForm* unknown = someRandomIntern.makeForm("nonexistent form", "Nowhere");
-    if (unknown) {
+    AForm* unknown = AnIntern.makeForm("nonexistent form", "Nowhere");
+
+    if (unknown)
+    {
         std::cout << "Created unknown form successfully!" << std::endl;
         delete unknown;
     }
