@@ -8,16 +8,17 @@
 
 int main(void)
 {
+    std::srand(std::time(0));
     Intern AnIntern;
     Bureaucrat boss("Boss", 1);
 
-    std::cout << "===== Test 1: Creating Forms by Intern =====" << std::endl;
+    std::cout << "===== Test 1: Creating Forms by Intern =====\n" << std::endl;
 
     AForm* shrub = AnIntern.makeForm("shrubbery creation", "Home");
     AForm* robotomy = AnIntern.makeForm("robotomy request", "robotom");
     AForm* pardon = AnIntern.makeForm("presidential pardon", "presidentialp");
 
-    std::cout << "===== Test 2: Bureaucrat Signing & Executing Forms =====" << std::endl;
+    std::cout << "\n===== Test 2: Bureaucrat Signing & Executing Forms =====\n" << std::endl;
     if (shrub)
     {
         boss.signForm(*shrub);

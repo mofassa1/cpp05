@@ -27,9 +27,7 @@ void ShrubberyCreationForm::ToEcecute(Bureaucrat const &executor) const
     (void)executor;
 
     std::ofstream outfile((this->GetTarget() + "_shrubbery").c_str());
-    if (!outfile) {
-        return;
-    }
+    if (!outfile) {return;}
 
     std::string stars = "";
     std::string spaces = "                             "; 
@@ -51,6 +49,7 @@ void ShrubberyCreationForm::ToEcecute(Bureaucrat const &executor) const
 
     outfile << std::endl;
     outfile.close();
+    std::cout << "the ascii tree created in file " << (this->GetTarget() + "_shrubbery") <<  std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

@@ -55,7 +55,6 @@ int  Form::GetGradeToExecute() const
     return GradeToExec;
 }
 
-
 void Form::beSigned(const Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getGrade() > GetGradeToSige())
@@ -82,18 +81,3 @@ std::ostream& operator<<(std::ostream& os, Form &form)
     return os;
 }
 
-
-
-
-/*
-std::ostream& operator<<(std::ostream& os, Form &form);
-
-
-        // getters
-        const std::string GetName() const;
-        const bool GetState() const;
-        const int  GetGradeToSige() const;
-        const int  GetGradeToExecute() const;
-
-
-*/

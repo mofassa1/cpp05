@@ -95,13 +95,11 @@ std::ostream& operator<<(std::ostream& out, AForm *form)
     out << "the form named : " << form->GetName() << std::endl;
     out << " it require to signe : " << form->GetGradeToSige() << std::endl;
     out << " and to execute : " << form->GetGradeToExecute() << std::endl;
-    // out << "it target : " << form->GetTarget() << std::endl;
     if (form->GetState() == true)
         out << "it is signded " << std::endl;
     else
         out << "it is not signded " << std::endl;
     return out;
-    // os << "Aform named : " << Aform.GetName() << " it state : " << Aform.GetState() << " Grade needed to signe : " << Aform.GetGradeToSige() << " and to execute : " << Aform.GetGradeToExecute() << std::endl;
-    // return os;
+
 }
 

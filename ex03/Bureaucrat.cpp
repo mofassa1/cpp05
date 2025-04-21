@@ -8,18 +8,7 @@ Bureaucrat::Bureaucrat(): Name("Unnamed"), Grade(150)
 
 Bureaucrat::Bureaucrat(std::string Name, int Grade): Name(Name)
 {
-    // try
-    // {
         setGrade(Grade);
-    // }
-    // catch (GradeTooHighException& e)
-    // {
-        // std::cerr << "Exception thrown: " << e.what() << std::endl;
-    // }
-    // catch (GradeTooLowException& e)
-    // {
-    //     std::cerr << "Exception thrown: " << e.what() << std::endl;
-    // }
 }
 
 Bureaucrat::Bureaucrat(std::string Name): Name(Name), Grade(150)
@@ -29,18 +18,7 @@ Bureaucrat::Bureaucrat(std::string Name): Name(Name), Grade(150)
 
 Bureaucrat::Bureaucrat(int Grade): Name("Unnamed")
 {
-    // try
-    // {
         setGrade(Grade);
-    // }
-    // catch (GradeTooHighException& e)
-    // {
-        // std::cerr << "Exception thrown: " << e.what() << std::endl;
-    // }
-    // catch (GradeTooLowException& e)
-    // {
-    //     std::cerr << "Exception thrown: " << e.what() << std::endl;
-    // }
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : Name(other.Name), Grade(other.Grade)
@@ -77,26 +55,12 @@ int Bureaucrat::getGrade() const
 // increment / decrement the Grade value
 void Bureaucrat::IncrementGrade()
 {
-    // try
-    // {
         setGrade(Grade - 1);
-    // }
-    // catch (GradeTooHighException& e)
-    // {
-    //     std::cerr << "Exception thrown: " << e.what() << std::endl;
-    // }
 }
 
 void Bureaucrat::DecrementGrade()
 {
-    // try
-    // {
         setGrade(Grade + 1);
-    // }
-    // catch (GradeTooLowException& e)
-    // {
-    //     std::cerr << "Exception thrown: " << e.what() << std::endl;
-    // }
 }
 
 // Grade exceptions
@@ -113,8 +77,6 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 // Set grade method
 void Bureaucrat::setGrade(int Grade)
 {
-    // try
-    // {
         if (Grade < 1)
         {
             this->Grade = 1;
@@ -127,15 +89,6 @@ void Bureaucrat::setGrade(int Grade)
         }
         else
             this->Grade = Grade;
-    // }
-    // catch(GradeTooLowException& e)
-    // {
-    //     std::cerr << "Exception thrown: " << e.what() << std::endl;
-    // }
-    // catch (GradeTooHighException& e)
-    // {
-    //     std::cerr << "Exception thrown: " << e.what() << std::endl;
-    // }
 }
 
 
